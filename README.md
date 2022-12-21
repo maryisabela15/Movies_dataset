@@ -86,11 +86,15 @@ plt.ylabel('Budget for film')
 plt.title('Budget vs Gross earnings')
 plt.show()
 ```
+![](./Gallery/Figure_1.png)
+
 #### 2) Plot the correlation and the reg line using Seaborn
 ```
 sns.regplot(x = 'budget', y = 'gross', data = data, line_kws = {'color':'black'})
 plt.show()
 ```
+![](./Gallery/Figure_2.png)
+
 #### 3) Calculate correlation matrix and plot a heatmap
 ```
 corr_matrix = data.corr()
@@ -101,6 +105,8 @@ plt.ylabel('Movie features')
 plt.title('Correlation matrix')
 plt.show()
 ```
+![](./Gallery/Figure_3.png)
+
 #### 4) Change the object type to category and plot a heatmap with all values
 ```
 data_numarized = data
@@ -123,3 +129,4 @@ plt.ylabel('Movie features')
 plt.title('Correlation matrix')
 plt.show()
 ```
+![](./Gallery/Figure_4.png)
