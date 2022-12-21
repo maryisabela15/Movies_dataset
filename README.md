@@ -47,7 +47,7 @@ data['budget'] = data['budget'].astype('int64')
 
 data['gross'] = data['gross'].astype('int64')
 ```
-#### 3) Create a new column for the correct year
+#### 3) Select the year and create a new column for the correct year
 ```
 def get_year(s):
     s = str(s)
@@ -75,6 +75,51 @@ duplicates = data.drop_duplicates()
 
 ### Data Visualization
 
-# 1) Scaterr plot to see correlations between budget and gross revenue
+#### 1) Scaterr plot to see correlations between budget and gross revenue
+```
+x = data['budget']
+y = data['gross']
 
-![](./Gallery/Figure_1.png)
+plt.scatter(x,y)
+plt.xlabel('Gross earnings')
+plt.ylabel('Budget for film')
+plt.title('Budget vs Gross earnings')
+plt.show()
+```
+#### 2) Plot the correlation and the reg line using Seaborn
+```
+sns.regplot(x = 'budget', y = 'gross', data = data, line_kws = {'color':'black'})
+plt.show()
+```
+#### 3) Calculate correlation matrix and plot a heatmap
+```
+corr_matrix = data.corr()
+
+sns.heatmap(corr_matrix, annot=True)
+plt.xlabel('Movie features')
+plt.ylabel('Movie features')
+plt.title('Correlation matrix')
+plt.show()
+```
+#### 4) Change the object type to category and plot a heatmap with all values
+```
+data_numarized = data
+
+for col_name in data_numarized.columns:
+    if(data_numarized[col_name].dtype == 'object'):
+        data_numarized[col_name] = data_numarized[col_name].astype('category')
+        data_numarized[col_name] = data_numarized[col_name].cat.codes
+
+data_numarized  
+
+corr_matrix = data_numarized.corr()
+corr_matrix_pairs = corr_matrix.unstack()
+sort_pairs = corr_matrix_pairs.sort_values()
+
+
+sns.heatmap(corr_matrix, annot=True)
+plt.xlabel('Movie features')
+plt.ylabel('Movie features')
+plt.title('Correlation matrix')
+plt.show()
+```
