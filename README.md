@@ -93,7 +93,7 @@ plt.show()
 sns.regplot(x = 'budget', y = 'gross', data = data, line_kws = {'color':'black'})
 plt.show()
 ```
-![](./Gallery/Figure_2.png)
+![](./Gallery/Figure_12.png)
 
 #### 3) Calculate correlation matrix and plot a heatmap
 ```
@@ -105,7 +105,7 @@ plt.ylabel('Movie features')
 plt.title('Correlation matrix')
 plt.show()
 ```
-![](./Gallery/Figure_3.png)
+![](./Gallery/Figure_13.png)
 
 #### 4) Change the object type to category and plot a heatmap with all values
 ```
