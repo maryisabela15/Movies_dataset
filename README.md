@@ -41,13 +41,13 @@ print(data)
 ```
 data.dtypes
 ```
-#### 2) Change data types for budget and gross columns
+##### 2) Change data types for budget and gross columns
 ```
 data['budget'] = data['budget'].astype('int64')
 
 data['gross'] = data['gross'].astype('int64')
 ```
-#### 3) Select the year and create a new column for the correct year
+##### 3) Select the year and create a new column for the correct year
 ```
 def get_year(s):
     s = str(s)
@@ -63,7 +63,7 @@ def get_year(s):
 
 data['year_corrected'] = data['released'].apply(get_year)
 ```
-#### 4) Order the data by gross 
+##### 4) Order the data by gross 
 ```
 data_sort = data.sort_values(by = ['gross'], inplace = False, ascending = False)
 ```
